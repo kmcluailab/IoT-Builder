@@ -68,10 +68,9 @@
     }
 
     .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeIn 1s ease forwards;
-      animation-play-state: paused;
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+      animation: none !important;
     }
 
     @keyframes fadeIn {
@@ -86,7 +85,7 @@
 
 <header>
   <img src="./img/Khwaja_Moinuddin_Chishti_Language_University_logo.png" alt="University Logo">
-  <h1>IoT Builder 6205 - Scientech</h1>
+  <h1>IoT Builder 6205</h1>
 </header>
 
 <div class="container">
@@ -134,17 +133,6 @@
     A project was implemented for temperature monitoring using an LM35 sensor connected to the IoT Builder 6205. Data was displayed on the LCD and also uploaded to ThingSpeak cloud for remote monitoring, showing real-time sensor integration and cloud-based automation using Python.
   </p>
 </div>
-
-<script>
-  window.addEventListener("scroll", () => {
-    document.querySelectorAll(".fade-in").forEach(el => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 50) {
-        el.style.animationPlayState = "running";
-      }
-    });
-  });
-</script>
 
 </body>
 </html>
