@@ -1,138 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IoT Builder 6205 - Scientech</title>
   <style>
     body {
-      margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #f4f4f9;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 0;
       color: #333;
     }
 
     header {
       background-color: #283593;
       color: white;
-      padding: 15px 30px;
-      display: flex;
-      align-items: center;
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+      padding: 20px 20px 20px 100px;
+      text-align: center;
+      position: relative;
+      animation: slideInDown 1s ease;
     }
 
-    header img {
-      height: 60px;
-      margin-right: 20px;
+    header img.logo {
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      height: 80px;
     }
 
-    header h1 {
-      font-size: 28px;
-      animation: slideIn 1s ease-in-out;
+    main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2em;
+      background-color: #ffffff;
+      animation: fadeIn 1.5s ease-in;
     }
 
-    @keyframes slideIn {
-      from { transform: translateX(-100px); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
-    }
-
-    .container {
-      padding: 30px;
+    img.device {
+      max-width: 90%;
+      display: block;
+      margin: 20px auto;
+      border-radius: 10px;
+      border: 4px solid #ddd;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
     h2 {
-      color: #283593;
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 5px;
+      color: #1a237e;
+      margin-top: 30px;
     }
 
-    p, li {
-      font-size: 16px;
-      line-height: 1.6;
+    ul {
+      padding-left: 20px;
     }
 
-    .image-block {
-      text-align: center;
-      margin: 20px 0;
+    li {
+      margin: 10px 0;
+      transition: background-color 0.3s ease;
     }
 
-    .image-block img {
-      max-width: 90%;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      transition: transform 0.3s;
-    }
-
-    .image-block img:hover {
-      transform: scale(1.03);
-    }
-
-    .fade-in {
-      opacity: 1 !important;
-      transform: translateY(0) !important;
-      animation: none !important;
+    li:hover {
+      background-color: #f0f4ff;
+      padding-left: 5px;
     }
 
     @keyframes fadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideInDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <img src="./img/Khwaja_Moinuddin_Chishti_Language_University_logo.png" alt="University Logo">
-  <h1>IoT Builder 6205</h1>
+  <img src="./img/Khwaja_Moinuddin_Chishti_Language_University_logo.png" alt="University Logo" class="logo" />
+  <h1>Scientech IoT Builder 6205</h1>
 </header>
 
-<div class="container">
-  <h2 class="fade-in">Introduction</h2>
-  <p class="fade-in">
-    The Scientech 6205 IoT Builder is a comprehensive development platform for hands-on learning in the Internet of Things (IoT). It allows development of applications in smart agriculture, home automation, environmental monitoring, and more.
-  </p>
+<main>
+  <img src="./img/Iot-Builder.png" alt="IoT Builder Kit with Sensors" class="device" />
 
-  <div class="image-block fade-in">
-    <img src="./img/Iot-Builder.png" alt="IoT Builder Kit with Sensors">
-  </div>
+  <section>
+    <h2>Introduction</h2>
+    <p>
+      The Scientech 6205 IoT Builder is a comprehensive development platform designed to foster hands-on learning in IoT. It supports applications like smart homes, industrial automation, and environmental monitoring.
+    </p>
+  </section>
 
-  <h2 class="fade-in">Main Features</h2>
-  <ul class="fade-in">
-    <li>64-bit ARM Cortex A53 Quad-Core (1.4 GHz)</li>
-    <li>1 GB LPDDR2 RAM</li>
-    <li>32 GB Storage</li>
-    <li>Linux OS | Programming in C, Python, Shell</li>
-    <li>Real-time monitoring & cloud connectivity</li>
-  </ul>
+  <section>
+    <h2>Platform Highlights</h2>
+    <ul>
+      <li><strong>Processor:</strong> 64-bit ARM Cortex A53 Quad-Core (1.4 GHz)</li>
+      <li><strong>RAM:</strong> 1GB LPDDR2</li>
+      <li><strong>Storage:</strong> 32GB</li>
+      <li><strong>OS:</strong> Linux-based with support for C, Python, Shell scripting</li>
+      <li><strong>Outcome:</strong> IoT protocol understanding, embedded/cloud systems, GUI and web application experience</li>
+    </ul>
+  </section>
 
-  <h2 class="fade-in">Components</h2>
-  <ul class="fade-in">
-    <li>Microcontroller (Processor), Power Supply, USB Interface</li>
-    <li>ADC Interface, LCD, LED & Switch Interface</li>
-    <li>Motor Interface, RS485, Zigbee, GSM Gateway</li>
-    <li>Ethernet, EEPROM, GPIO</li>
-  </ul>
+  <section>
+    <h2>Core Components</h2>
+    <ul>
+      <li>Microcontroller, Power Supply, USB Interface</li>
+      <li>ADC Interface (A0–A3), LED & Switches, LCD Display</li>
+      <li>RS485, Motor Interface, Zigbee Coordinator</li>
+      <li>EEPROM, GPIO, GSM Gateway (Optional), Ethernet</li>
+    </ul>
+  </section>
 
-  <h2 class="fade-in">Applications</h2>
-  <ul class="fade-in">
-    <li>Smart Air Pollution Monitoring (Dust, Air quality sensors)</li>
-    <li>Smart Weather Station (Temperature & Humidity)</li>
-    <li>Room Environment Controller (Temp, Light, Air Quality)</li>
-    <li>Smart Streetlight (Ambient Light sensor)</li>
-  </ul>
+  <section>
+    <h2>Practical Applications</h2>
+    <ul>
+      <li><strong>Smart Air Pollution Monitor:</strong> Dust & Air quality sensors</li>
+      <li><strong>Smart Weather Station:</strong> Temp & Humidity sensors</li>
+      <li><strong>Room Environment Controller:</strong> Air, Temp, Light sensors</li>
+      <li><strong>Smart Streetlights:</strong> Ambient light sensors</li>
+    </ul>
+  </section>
 
-  <h2 class="fade-in">Sensor Working Overview</h2>
-  <p class="fade-in"><strong>Temperature & Humidity:</strong> Sends digital signal via GPIO or ADC, processed and displayed or uploaded to the cloud.</p>
-  <p class="fade-in"><strong>Air Quality:</strong> Uses ADC to read gas concentrations like CO₂, NH₃, Smoke, etc.</p>
-  <p class="fade-in"><strong>Soil Moisture:</strong> Measures resistance in soil and sends analog data to determine dryness/wetness.</p>
+  <section>
+    <h2>Sensor Integration</h2>
+    <ul>
+      <li><strong>Temp & Humidity:</strong> Connected via ADC or GPIO. Data sent to cloud via Wi-Fi.</li>
+      <li><strong>Air Quality:</strong> Measures CO₂, NH₃, smoke etc. Outputs varying voltages to ADC.</li>
+      <li><strong>Soil Moisture:</strong> Analog signal helps detect wet/dry conditions using resistance.</li>
+    </ul>
+  </section>
 
-  <h2 class="fade-in">Real-time Use Case</h2>
-  <p class="fade-in">
-    A project was implemented for temperature monitoring using an LM35 sensor connected to the IoT Builder 6205. Data was displayed on the LCD and also uploaded to ThingSpeak cloud for remote monitoring, showing real-time sensor integration and cloud-based automation using Python.
-  </p>
-</div>
+  <section>
+    <h2>Case Study</h2>
+    <p>
+      A project using LM35 temperature sensor reads temperature and uploads it to ThingSpeak cloud. This setup demonstrates real-time monitoring, cloud integration, and Python-based automation using the 6205 platform.
+    </p>
+  </section>
+</main>
 
 </body>
 </html>
