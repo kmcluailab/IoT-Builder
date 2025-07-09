@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IoT Builder 6205 - Scientech</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f9;
+      color: #333;
+    }
+
+    header {
+      background-color: #283593;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    header img {
+      height: 60px;
+      margin-right: 20px;
+    }
+
+    header h1 {
+      font-size: 28px;
+      animation: slideIn 1s ease-in-out;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateX(-100px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    .container {
+      padding: 30px;
+    }
+
+    h2 {
+      color: #283593;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 5px;
+    }
+
+    p, li {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .image-block {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .image-block img {
+      max-width: 90%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+
+    .image-block img:hover {
+      transform: scale(1.03);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1s ease forwards;
+      animation-play-state: paused;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="./img/Khwaja_Moinuddin_Chishti_Language_University_logo.png" alt="University Logo">
+  <h1>IoT Builder 6205 - Scientech</h1>
+</header>
+
+<div class="container">
+  <h2 class="fade-in">Introduction</h2>
+  <p class="fade-in">
+    The Scientech 6205 IoT Builder is a comprehensive development platform for hands-on learning in the Internet of Things (IoT). It allows development of applications in smart agriculture, home automation, environmental monitoring, and more.
+  </p>
+
+  <div class="image-block fade-in">
+    <img src="./img/Iot-Builder.png" alt="IoT Builder Kit with Sensors">
+  </div>
+
+  <h2 class="fade-in">Main Features</h2>
+  <ul class="fade-in">
+    <li>64-bit ARM Cortex A53 Quad-Core (1.4 GHz)</li>
+    <li>1 GB LPDDR2 RAM</li>
+    <li>32 GB Storage</li>
+    <li>Linux OS | Programming in C, Python, Shell</li>
+    <li>Real-time monitoring & cloud connectivity</li>
+  </ul>
+
+  <h2 class="fade-in">Components</h2>
+  <ul class="fade-in">
+    <li>Microcontroller (Processor), Power Supply, USB Interface</li>
+    <li>ADC Interface, LCD, LED & Switch Interface</li>
+    <li>Motor Interface, RS485, Zigbee, GSM Gateway</li>
+    <li>Ethernet, EEPROM, GPIO</li>
+  </ul>
+
+  <h2 class="fade-in">Applications</h2>
+  <ul class="fade-in">
+    <li>Smart Air Pollution Monitoring (Dust, Air quality sensors)</li>
+    <li>Smart Weather Station (Temperature & Humidity)</li>
+    <li>Room Environment Controller (Temp, Light, Air Quality)</li>
+    <li>Smart Streetlight (Ambient Light sensor)</li>
+  </ul>
+
+  <h2 class="fade-in">Sensor Working Overview</h2>
+  <p class="fade-in"><strong>Temperature & Humidity:</strong> Sends digital signal via GPIO or ADC, processed and displayed or uploaded to the cloud.</p>
+  <p class="fade-in"><strong>Air Quality:</strong> Uses ADC to read gas concentrations like CO₂, NH₃, Smoke, etc.</p>
+  <p class="fade-in"><strong>Soil Moisture:</strong> Measures resistance in soil and sends analog data to determine dryness/wetness.</p>
+
+  <h2 class="fade-in">Real-time Use Case</h2>
+  <p class="fade-in">
+    A project was implemented for temperature monitoring using an LM35 sensor connected to the IoT Builder 6205. Data was displayed on the LCD and also uploaded to ThingSpeak cloud for remote monitoring, showing real-time sensor integration and cloud-based automation using Python.
+  </p>
+</div>
+
+<script>
+  window.addEventListener("scroll", () => {
+    document.querySelectorAll(".fade-in").forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 50) {
+        el.style.animationPlayState = "running";
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

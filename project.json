@@ -1,0 +1,39 @@
+{
+  "project": {
+    "name": "IoT Builder 6205 - Scientech",
+    "description": "A modern, responsive single-page web application showcasing the features, architecture, and use cases of the Scientech 6205 IoT development platform. Designed for students and faculty at Khwaja Moinuddin Chishti Language University.",
+    "version": "1.0.0",
+    "author": {
+      "name": "Akash Gupta",
+      "github": "https://github.com/saysky2",
+      "linkedin": "https://www.linkedin.com/in/saysky2"
+    },
+    "files": [
+      "inex.html",
+      "Iot Builder.png",
+      "Khwaja_Moinuddin_Chishti_Language_University_logo.png",
+      "README.md"
+    ],
+    "features": [
+      "Scroll-based fade-in animations",
+      "University logo branding with custom header",
+      "Sensor applications and component details",
+      "Real-time IoT use case demonstration",
+      "Clean and responsive layout with inline styles",
+      "Optimized for educational and lab use"
+    ],
+    "technologies": [
+      "HTML5",
+      "CSS3",
+      "JavaScript (vanilla)"
+    ],
+    "hosting": {
+      "recommended": [
+        "GitHub Pages",
+        "Netlify",
+        "Vercel"
+      ]
+    },
+    "license": "MIT"
+  }
+}
