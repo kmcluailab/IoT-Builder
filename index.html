@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,16 +7,83 @@
   <title>IoT Builder 6205 - Scientech</title>
   <link rel="icon" type="image/png" href="./img/Khwaja_Moinuddin_Chishti_Language_University_logo.png" />
   <style>
+    :root {
+      --bg-color: #f5f7fa;
+      --text-color: #333;
+      --header-bg: #283593;
+      --main-bg: #fff;
+      --accent-color: #1a237e;
+      --border-color: #ddd;
+      --shadow-color: rgba(0,0,0,0.1);
+      --hover-bg: #f0f4ff;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #1a1a1a;
+      --text-color: #e0e0e0;
+      --header-bg: #1e1e2e;
+      --main-bg: #2d2d2d;
+      --accent-color: #64b5f6;
+      --border-color: #444;
+      --shadow-color: rgba(0,0,0,0.5);
+      --hover-bg: #333;
+    }
+
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #f5f7fa;
+      background: var(--bg-color);
       margin: 0;
       padding: 0;
-      color: #333;
+      color: var(--text-color);
+      transition: all 0.3s ease;
+    }
+
+    .controls {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      display: flex;
+      gap: 10px;
+    }
+
+    .control-btn {
+      background-color: white;
+      color: black;
+      border: 2px solid #ccc;
+      padding: 10px 20px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 14px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: 500;
+    }
+
+    .control-btn:hover {
+      background-color: #f5f5f5;
+      border-color: #aaa;
+    }
+
+    .language-select {
+      background-color: white;
+      color: black;
+      border: 2px solid #ccc;
+      padding: 10px 20px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
     }
 
     header {
-      background-color: #283593;
+      background-color: var(--header-bg);
       color: white;
       padding: 20px 20px 20px 100px;
       text-align: center;
@@ -34,8 +102,9 @@
       max-width: 1200px;
       margin: auto;
       padding: 2em;
-      background-color: #ffffff;
+      background-color: var(--main-bg);
       animation: fadeIn 1.5s ease-in;
+      margin-bottom: 100px;
     }
 
     img.device {
@@ -43,12 +112,13 @@
       display: block;
       margin: 20px auto;
       border-radius: 10px;
-      border: 4px solid #ddd;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border: 4px solid var(--border-color);
+      box-shadow: 0 4px 10px var(--shadow-color);
+      animation: fadeInImage 2s ease-in-out;
     }
 
     h2 {
-      color: #1a237e;
+      color: var(--accent-color);
       margin-top: 30px;
     }
 
@@ -62,8 +132,29 @@
     }
 
     li:hover {
-      background-color: #f0f4ff;
+      background-color: var(--hover-bg);
       padding-left: 5px;
+    }
+
+    .lang-hidden {
+      display: none;
+    }
+
+    footer {
+      background-color: var(--header-bg);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+    }
+
+    footer a {
+      color: #64b5f6;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
 
     @keyframes fadeIn {
@@ -75,72 +166,215 @@
       from { transform: translateY(-100%); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
     }
+
+    @keyframes fadeInImage {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
   </style>
 </head>
 <body>
 
+<div class="controls">
+  <button class="control-btn" onclick="toggleDarkMode()">🌙 Dark</button>
+  <select class="language-select" onchange="changeLanguage(this.value)">
+    <option value="en">English</option>
+    <option value="hi">हिंदी</option>
+    <option value="ur">اردو</option>
+  </select>
+</div>
+
 <header>
   <img src="./img/Khwaja_Moinuddin_Chishti_Language_University_logo.png" alt="University Logo" class="logo" />
-  <h1>Scientech IoT Builder 6205</h1>
+  <h1 data-lang="en">Scientech IoT Builder 6205</h1>
+  <h1 data-lang="hi" class="lang-hidden">साइंटेक IoT बिल्डर 6205</h1>
+  <h1 data-lang="ur" class="lang-hidden">سائنٹیک IoT بلڈر 6205</h1>
 </header>
 
 <main>
   <img src="./img/Iot-Builder.png" alt="IoT Builder Kit with Sensors" class="device" />
 
   <section>
-    <h2>Introduction</h2>
-    <p>
+    <h2 data-lang="en">Introduction</h2>
+    <h2 data-lang="hi" class="lang-hidden">परिचय</h2>
+    <h2 data-lang="ur" class="lang-hidden">تعارف</h2>
+    
+    <p data-lang="en">
       The Scientech 6205 IoT Builder is a comprehensive development platform designed to foster hands-on learning in IoT. It supports applications like smart homes, industrial automation, and environmental monitoring.
+    </p>
+    <p data-lang="hi" class="lang-hidden">
+      साइंटेक 6205 IoT बिल्डर एक व्यापक विकास प्लेटफॉर्म है जो IoT में व्यावहारिक शिक्षा को बढ़ावा देने के लिए डिज़ाइन किया गया है। यह स्मार्ट घरों, औद्योगिक स्वचालन और पर्यावरण निगरानी जैसे अनुप्रयोगों का समर्थन करता है।
+    </p>
+    <p data-lang="ur" class="lang-hidden">
+      سائنٹیک 6205 IoT بلڈر ایک جامع ڈیولپمنٹ پلیٹ فارم ہے جو IoT میں عملی تعلیم کو فروغ دینے کے لیے ڈیزائن کیا گیا ہے۔ یہ اسمارٹ گھروں، صنعتی آٹومیشن، اور ماحولیاتی نگرانی جیسی ایپلی کیشنز کو سپورٹ کرتا ہے۔
     </p>
   </section>
 
   <section>
-    <h2>Platform Highlights</h2>
-    <ul>
+    <h2 data-lang="en">Platform Highlights</h2>
+    <h2 data-lang="hi" class="lang-hidden">प्लेटफॉर्म की मुख्य विशेषताएं</h2>
+    <h2 data-lang="ur" class="lang-hidden">پلیٹ فارم کی خصوصیات</h2>
+    
+    <ul data-lang="en">
       <li><strong>Processor:</strong> 64-bit ARM Cortex A53 Quad-Core (1.4 GHz)</li>
       <li><strong>RAM:</strong> 1GB LPDDR2</li>
       <li><strong>Storage:</strong> 32GB</li>
       <li><strong>OS:</strong> Linux-based with support for C, Python, Shell scripting</li>
       <li><strong>Outcome:</strong> IoT protocol understanding, embedded/cloud systems, GUI and web application experience</li>
     </ul>
+    <ul data-lang="hi" class="lang-hidden">
+      <li><strong>प्रोसेसर:</strong> 64-bit ARM Cortex A53 Quad-Core (1.4 GHz)</li>
+      <li><strong>RAM:</strong> 1GB LPDDR2</li>
+      <li><strong>स्टोरेज:</strong> 32GB</li>
+      <li><strong>OS:</strong> Linux-आधारित C, Python, Shell scripting के साथ</li>
+      <li><strong>परिणाम:</strong> IoT प्रोटोकॉल समझ, embedded/cloud systems, GUI और web application अनुभव</li>
+    </ul>
+    <ul data-lang="ur" class="lang-hidden">
+      <li><strong>پروسیسر:</strong> 64-bit ARM Cortex A53 Quad-Core (1.4 GHz)</li>
+      <li><strong>RAM:</strong> 1GB LPDDR2</li>
+      <li><strong>اسٹوریج:</strong> 32GB</li>
+      <li><strong>OS:</strong> Linux-based C, Python, Shell scripting کے ساتھ</li>
+      <li><strong>نتیجہ:</strong> IoT protocol سمجھ، embedded/cloud systems، GUI اور web application تجربہ</li>
+    </ul>
   </section>
 
   <section>
-    <h2>Core Components</h2>
-    <ul>
+    <h2 data-lang="en">Core Components</h2>
+    <h2 data-lang="hi" class="lang-hidden">मुख्य घटक</h2>
+    <h2 data-lang="ur" class="lang-hidden">بنیادی اجزاء</h2>
+    
+    <ul data-lang="en">
       <li>Microcontroller, Power Supply, USB Interface</li>
       <li>ADC Interface (A0–A3), LED & Switches, LCD Display</li>
       <li>RS485, Motor Interface, Zigbee Coordinator</li>
       <li>EEPROM, GPIO, GSM Gateway (Optional), Ethernet</li>
     </ul>
+    <ul data-lang="hi" class="lang-hidden">
+      <li>माइक्रोकंट्रोलर, पावर सप्लाई, USB इंटरफेस</li>
+      <li>ADC इंटरफेस (A0–A3), LED और स्विच, LCD डिस्प्ले</li>
+      <li>RS485, मोटर इंटरफेस, Zigbee कोऑर्डिनेटर</li>
+      <li>EEPROM, GPIO, GSM गेटवे (वैकल्पिक), ईथरनेट</li>
+    </ul>
+    <ul data-lang="ur" class="lang-hidden">
+      <li>مائیکرو کنٹرولر، پاور سپلائی، USB انٹرفیس</li>
+      <li>ADC انٹرفیس (A0–A3)، LED اور سوئچز، LCD ڈسپلے</li>
+      <li>RS485، موٹر انٹرفیس، Zigbee کوآرڈینیٹر</li>
+      <li>EEPROM، GPIO، GSM گیٹ وے (اختیاری)، ایتھرنیٹ</li>
+    </ul>
   </section>
 
   <section>
-    <h2>Practical Applications</h2>
-    <ul>
+    <h2 data-lang="en">Practical Applications</h2>
+    <h2 data-lang="hi" class="lang-hidden">व्यावहारिक अनुप्रयोग</h2>
+    <h2 data-lang="ur" class="lang-hidden">عملی اطلاقات</h2>
+    
+    <ul data-lang="en">
       <li><strong>Smart Air Pollution Monitor:</strong> Dust & Air quality sensors</li>
       <li><strong>Smart Weather Station:</strong> Temp & Humidity sensors</li>
       <li><strong>Room Environment Controller:</strong> Air, Temp, Light sensors</li>
       <li><strong>Smart Streetlights:</strong> Ambient light sensors</li>
     </ul>
-  </section>
-
-  <section>
-    <h2>Sensor Integration</h2>
-    <ul>
-      <li><strong>Temp & Humidity:</strong> Connected via ADC or GPIO. Data sent to cloud via Wi-Fi.</li>
-      <li><strong>Air Quality:</strong> Measures CO₂, NH₃, smoke etc. Outputs varying voltages to ADC.</li>
-      <li><strong>Soil Moisture:</strong> Analog signal helps detect wet/dry conditions using resistance.</li>
+    <ul data-lang="hi" class="lang-hidden">
+      <li><strong>स्मार्ट वायु प्रदूषण मॉनिटर:</strong> धूल और वायु गुणवत्ता सेंसर</li>
+      <li><strong>स्मार्ट मौसम स्टेशन:</strong> तापमान और आर्द्रता सेंसर</li>
+      <li><strong>कक्ष पर्यावरण नियंत्रक:</strong> हवा, तापमान, प्रकाश सेंसर</li>
+      <li><strong>स्मार्ट स्ट्रीटलाइट:</strong> परिवेशी प्रकाश सेंसर</li>
+    </ul>
+    <ul data-lang="ur" class="lang-hidden">
+      <li><strong>اسمارٹ ایئر پلوشن مانیٹر:</strong> دھول اور ہوا کی کوالٹی سینسرز</li>
+      <li><strong>اسمارٹ ویدر سٹیشن:</strong> درجہ حرارت اور نمی کے سینسرز</li>
+      <li><strong>کمرے کا ماحولیاتی کنٹرولر:</strong> ہوا، درجہ حرارت، روشنی کے سینسرز</li>
+      <li><strong>اسمارٹ سٹریٹ لائٹس:</strong> محیطی روشنی کے سینسرز</li>
     </ul>
   </section>
 
   <section>
-    <h2>Case Study</h2>
-    <p>
+    <h2 data-lang="en">Sensor Integration</h2>
+    <h2 data-lang="hi" class="lang-hidden">सेंसर एकीकरण</h2>
+    <h2 data-lang="ur" class="lang-hidden">سینسر انٹیگریشن</h2>
+    
+    <ul data-lang="en">
+      <li><strong>Temp & Humidity:</strong> Connected via ADC or GPIO. Data sent to cloud via Wi-Fi.</li>
+      <li><strong>Air Quality:</strong> Measures CO₂, NH₃, smoke etc. Outputs varying voltages to ADC.</li>
+      <li><strong>Soil Moisture:</strong> Analog signal helps detect wet/dry conditions using resistance.</li>
+    </ul>
+    <ul data-lang="hi" class="lang-hidden">
+      <li><strong>तापमान और आर्द्रता:</strong> ADC या GPIO के माध्यम से जुड़े। Wi-Fi के माध्यम से cloud में डेटा भेजा गया।</li>
+      <li><strong>वायु गुणवत्ता:</strong> CO₂, NH₃, धुआं आदि मापता है। ADC को विभिन्न वोल्टेज आउटपुट।</li>
+      <li><strong>मिट्टी की नमी:</strong> एनालॉग सिग्नल प्रतिरोध का उपयोग करके गीली/सूखी स्थितियों का पता लगाने में मदद करता है।</li>
+    </ul>
+    <ul data-lang="ur" class="lang-hidden">
+      <li><strong>درجہ حرارت اور نمی:</strong> ADC یا GPIO کے ذریعے جڑے ہوئے۔ Wi-Fi کے ذریعے cloud میں ڈیٹا بھیجا جاتا ہے۔</li>
+      <li><strong>ہوا کی کوالٹی:</strong> CO₂، NH₃، دھواں وغیرہ ناپتا ہے۔ ADC کو مختلف وولٹیج آؤٹ پٹ کرتا ہے۔</li>
+      <li><strong>مٹی کی نمی:</strong> اینالاگ سگنل مزاحمت استعمال کرکے گیلی/خشک حالات کا پتہ لگانے میں مدد کرتا ہے۔</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 data-lang="en">Case Study</h2>
+    <h2 data-lang="hi" class="lang-hidden">केस स्टडी</h2>
+    <h2 data-lang="ur" class="lang-hidden">کیس اسٹڈی</h2>
+    
+    <p data-lang="en">
       A project using LM35 temperature sensor reads temperature and uploads it to ThingSpeak cloud. This setup demonstrates real-time monitoring, cloud integration, and Python-based automation using the 6205 platform.
+    </p>
+    <p data-lang="hi" class="lang-hidden">
+      LM35 तापमान सेंसर का उपयोग करने वाला एक प्रोजेक्ट तापमान पढ़ता है और इसे ThingSpeak क्लाउड पर अपलोड करता है। यह सेटअप 6205 प्लेटफॉर्म का उपयोग करके रियल-टाइम मॉनिटरिंग, क्लाउड एकीकरण और Python-आधारित स्वचालन का प्रदर्शन करता है।
+    </p>
+    <p data-lang="ur" class="lang-hidden">
+      LM35 درجہ حرارت سینسر استعمال کرتے ہوئے ایک پروجیکٹ درجہ حرارت پڑھتا ہے اور اسے ThingSpeak cloud پر اپ لوڈ کرتا ہے۔ یہ سیٹ اپ 6205 پلیٹ فارم استعمال کرتے ہوئے real-time monitoring، cloud integration، اور Python-based automation کا مظاہرہ کرتا ہے۔
     </p>
   </section>
 </main>
+
+  <footer>
+    <p data-lang="en">
+      Developer: Akash Gupta | 
+      <a href="https://www.linkedin.com/in/saysky2" target="_blank">LinkedIn</a> | 
+      <a href="https://github.com/saysky2" target="_blank">GitHub</a>
+    </p>
+    <p data-lang="en">Under the Supervision of <strong>Dr. Shan E Fatima</strong></p>
+    <p data-lang="hi" class="lang-hidden">
+      डेवलपर: आकाश गुप्ता | 
+      <a href="https://www.linkedin.com/in/saysky2" target="_blank">LinkedIn</a> | 
+      <a href="https://github.com/saysky2" target="_blank">GitHub</a>
+    </p>
+    <p data-lang="hi" class="lang-hidden"><strong>डॉ. शान ई. फातिमा</strong> के पर्यवेक्षण में</p>
+    <p data-lang="ur" class="lang-hidden">
+      ڈیولپر: آکاش گپتا | 
+      <a href="https://www.linkedin.com/in/saysky2" target="_blank">LinkedIn</a> | 
+      <a href="https://github.com/saysky2" target="_blank">GitHub</a>
+    </p>
+    <p data-lang="ur" class="lang-hidden"><strong>ڈاکٹر شان ای فاطمہ</strong> کی نگرانی میں</p>
+  </footer>
+
+<script>
+  function toggleDarkMode() {
+    const body = document.body;
+    const isDark = body.getAttribute('data-theme') === 'dark';
+    body.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    
+    const btn = document.querySelector('.control-btn');
+    btn.innerHTML = isDark ? '🌙 Dark' : '☀️ Light';
+  }
+
+  function changeLanguage(lang) {
+    // Hide all language elements
+    const allLangElements = document.querySelectorAll('[data-lang]');
+    allLangElements.forEach(el => {
+      el.classList.add('lang-hidden');
+    });
+    
+    // Show elements for selected language
+    const selectedLangElements = document.querySelectorAll(`[data-lang="${lang}"]`);
+    selectedLangElements.forEach(el => {
+      el.classList.remove('lang-hidden');
+    });
+  }
+
+  // Initialize with English
+  changeLanguage('en');
+</script>
 
 </body>
 </html>
